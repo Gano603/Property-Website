@@ -78,7 +78,6 @@ const Sell = ({ api_Url }) => {
 
 
   const submitHandler = () => {
-    // axios.post(api_Url+"/ad/newad").then((res)=> console.log(res))
     const promises = files.map((index) => {
       return new Promise((resolve) => {
         const reader = new FileReader();
@@ -94,7 +93,7 @@ const Sell = ({ api_Url }) => {
       .then(async(resolved_data) => {
         await axios.post(api_Url + "/ad/newad", {
             name, email, contact, beds, baths, size, features: selectedfeatures, price:price.toLocaleString(), address, city, type, dfiles: resolved_data, description, service_type:service,
-          },{timeout: 60000}).then((res)=> console.log(res)).catch((err) => console.log("Error:", err))
+          },{timeout: 60000}).then(()=> nav("/")).catch((err) => console.log("Error:", err))
         })
   };
 
@@ -124,7 +123,7 @@ const Sell = ({ api_Url }) => {
           <p>Get the best value for your property in a few steps.</p>
         </div>
         <div>
-          <img src="/src/assets/img/For sale-bro.png" alt="For Sale Logo" />
+          <img src="/assets/img/For sale-bro.png" alt="For Sale Logo" />
         </div>
       </div>
       <div className='content-box' >
