@@ -123,7 +123,7 @@ const Sell = ({ api_Url }) => {
           <p>Get the best value for your property in a few steps.</p>
         </div>
         <div>
-          <img src="assets/img/For sale-bro.png" alt="For Sale Logo" />
+          <img src="./assets/img/For sale-bro.png" alt="For Sale Logo" />
         </div>
       </div>
       <div className='content-box' >
