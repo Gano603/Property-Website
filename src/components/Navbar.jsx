@@ -30,7 +30,7 @@ const Navbar = ({api_Url , isLogin , setisLogin , profMenuisOpen , setprofMenuis
     <>
       <div className='navbar'>
         <div className='title-box' onClick={() => nav('/')}>
-          <img src="/assets/img/ideogram.jpeg" alt="logo" />
+          <img src="assets/img/ideogram.jpeg" alt="logo" />
           <h2><span className='text-red'>Estate</span>.com</h2>
         </div>
         <div className='menu_nav'>
