@@ -44,10 +44,10 @@ const Signin = ({api_Url , setisLogin}) => {
   }
   else if(!register){
     await axios.post(api_Url+"/user/login",{
-      email:"khawar603@gmail.com",password:"123"
+      email,password
     },req_options).then((res)=> console.log(res.data)).then(()=> {
-      // setisLogin(true)
-      // nav('/')
+      setisLogin(true)
+      nav('/')
     }
       )
     }
