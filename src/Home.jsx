@@ -14,9 +14,9 @@ const Home = () => {
       <div className='circle1'></div> 
       <div className='circle2'></div> 
     <div className='options'>
-      <Card title={"Sell Property"} imageUrl={"/assets/img/For sale-bro.png"} target="/sell"/>
-      <Card title={"Buy Property"} imageUrl={"/assets/img/House searching-cuate.png"} target="/buy"/>
-      <Card title={"Rent"} imageUrl={"/assets/img/Apartment rent-bro.png"} target="/rent"/>
+      <Card title={"Sell Property"} imageUrl={"assets/img/For sale-bro.png"} target="/sell"/>
+      <Card title={"Buy Property"} imageUrl={"assets/img/House searching-cuate.png"} target="/buy"/>
+      <Card title={"Rent"} imageUrl={"assets/img/Apartment rent-bro.png"} target="/rent"/>
     </div>
     </div>
     </>
