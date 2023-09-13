@@ -5,7 +5,7 @@ export const Content_text_input = ({ title, place_title, search, pkr, value, set
     <div>
       <h2>{title}</h2>
       <div className='input-div'><ImSearch className={search ? '' : 'off'} /><input type="text" placeholder={place_title} value={value} onChange={(e) => setvalue(e.target.value)}/><span className={pkr ? 'input-pkr' : 'off'}>PKR</span><span className={size ? 'input-pkr' : 'off'}>Marlas</span></div>
-      <span className={size ?'size-display': 'off'}>{Math.floor(value / 20)} Kanals and {value%20} Marlas</span>
+      <span className={size ?'size-calculator': 'off'}>{Math.floor(value / 20)} Kanals and {value%20} Marlas</span>
     </div>
   )
 }

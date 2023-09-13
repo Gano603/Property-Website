@@ -1,1 +1,0 @@
-import{j as o}from"./index-3b2434f4.js";const t=()=>o.jsxs("div",{className:"footer",children:[o.jsx("hr",{className:"footer-line"}),o.jsx("p",{children:"©Copyright trademark of Estate.com"})]});export{t as default};
