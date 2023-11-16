@@ -15,7 +15,7 @@ const Navbar = ({api_Url , isLogin , setisLogin , profMenuisOpen , setprofMenuis
   const [MenuisOpen, setMenuisOpen] = useState(false);
 
   useEffect(() => {
-    axios.get(api_Url + "/user/getuser")
+    axios.get(api_Url+"/user/getuser")
       .then((response) => {
         if(response.data.success) setisLogin(true)
       })

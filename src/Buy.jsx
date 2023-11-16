@@ -44,7 +44,7 @@ const AdDisplay = ({api_Url}) => {
       <SearchBar address={location} class_name={"Display-searchbar"}/>
       <div className="top-poster"></div>
       <div className='display'>
-      <h1>Properties for Sale in {location}</h1>
+      <h1>Properties for Sale {location==="all"?"":"in"} {location==="all"?"":location}</h1>
       <div className='responsive-on-700px filter-button'>
           <button className="option-button"><FaFilter /><span>Filters</span></button>
         </div>

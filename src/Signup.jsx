@@ -18,13 +18,6 @@ const Signin = ({api_Url , setisLogin}) => {
   const [contact , setcontact] = useState("");
   const [register , setregister] = useState(false);
 
-  const req_options = {
-    headers:{
-      "Content-Type":"application/json"
-    },
-    withCredentials:true
-  }
-
   const submitHandler = async() =>{
     if(password !== cpassword && register){
       console.log("Not Match")
@@ -38,18 +31,17 @@ const Signin = ({api_Url , setisLogin}) => {
   else if(register){
     await axios.post(api_Url+"/user/newuser",{
       name,email,password,contact
-    },req_options).then((res)=> console.log(res.data)).then(()=> {
+    }).then((res)=> console.log(res.data)).then(()=> {
       setisLogin(true)
-      nav('/')})
+      }).then(()=> nav('/'))
   }
   else if(!register){
     await axios.post(api_Url+"/user/login",{
       email,password
-    },req_options).then((res)=> console.log(res.data)).then(()=> {
+    }).then((res)=> console.log(res.data)).then(()=> {
       setisLogin(true)
-      nav('/')
     }
-      )
+      ).then(()=> nav('/'))
     }
   }
 

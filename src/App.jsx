@@ -9,9 +9,9 @@ const Signin = lazy(() => import('./Signup'))
 import '../src/styles/App.scss'
 
 const api_url = import.meta.env.VITE_API_URL;
+// const api_url = "http://localhost:5000";
 
 function App() {
-
   const [isLogin,setisLogin] = useState(false); 
   const [profMenuisOpen,setprofMenuisOpen] = useState(false); 
 

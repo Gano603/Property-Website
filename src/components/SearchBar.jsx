@@ -32,7 +32,7 @@ const SearchBar = ({address , class_name}) => {
 
   return (
     <div className={class_combine}>
-      <input type="text" placeholder='Search by City' onKeyDown={(e)=>{if(e.key === 'Enter') submitHandler()}} value={address=== 'all'? '':address} onChange={(e)=> setsearchValue(e.target.value)}/>
+      <input type="text" placeholder='Search by City' onKeyDown={(e)=>{if(e.key === 'Enter') submitHandler()}} value={address} onChange={(e)=> setsearchValue(e.target.value)}/>
       <ImSearch onClick={submitHandler}/>
     </div>
   )
