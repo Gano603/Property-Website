@@ -11,28 +11,38 @@ const Addisplay = ({ index, setdisplayMenu }) => {
   const [sizeDisplay, setsizeDisplay] = useState(false);
 
   return (
-    <div className="main-window">
-      <div className="display-window">
-        <div className="detail-window">
-          <div className='exit-button'><span onClick={() => setdisplayMenu(false)} >x</span></div>
-          <div className='details-section'>
-            <h1>{index.type.toUpperCase()}</h1>
-            <h2>RS {index.price}</h2>
-            <h3>{index.address.toUpperCase()}</h3>
-            <div className='detail-description'>
+    <div className="fixed h-full w-full backdrop-blur-md z-20 -translate-y-24">
+      <div className="flex mx-[10vw] my-[8vh] overflow-hidden rounded-xl">
+        <div className="w-[30%] flex flex-col p-3 items-center bg-black bg-opacity-80">
+          <div className='w-full'><span className='text-xl my-4 cursor-pointer text-white pr-3 pt-3' onClick={() => setdisplayMenu(false)} >x</span></div>
+          <div className='my-6 px-3'>
+            <h1 className='text-white text-3xl font-semibold my-1'>{index.type.toUpperCase()}</h1>
+            <h2 className='text-white text-lg my-1'>RS {parseInt(index.price).toLocaleString()} PKR</h2>
+            <h3 className='text-red-500 font-semibold my-1'>{index.address.toUpperCase()}</h3>
+            <div className='text-white my-5'>
               {index.description}
             </div>
-            <div>
-              <span><BiBed title='Beds' />{index.beds}</span>
-              <span><BiBath title='Baths' />{index.baths}</span>
-              <span onClick={() => setsizeDisplay(!sizeDisplay)}><TbRulerMeasure title='Size' /><span style={{ "text-decoration": "underline", "cursor": "pointer" }}>{index.size}</span></span></div>
-              {sizeDisplay && <SizeDisplay size={index.size}/>}
+            <div className='text-white border-t border-b border-white py-3 flex justify-between px-4'>
+              <span className='flex items-center'><BiBed title='Beds' className='mx-1' />{index.beds}</span>
+              <span className='flex items-center'><BiBath title='Baths' className='mx-1' />{index.baths}</span>
+              <span className='flex items-center' onClick={() => setsizeDisplay(!sizeDisplay)}><TbRulerMeasure title='Size' className='mx-1' /><span style={{ "text-decoration": "underline", "cursor": "pointer" }}>{index.size}</span></span></div>
+          </div>
+          <div className='self-end relative'>
+            {sizeDisplay && <SizeDisplay size={index.size} />}
+          </div>
+          <div className='w-full flex flex-wrap'>
+            {
+              index.features.map((ind,it)=>{
+                return <span className='text-white w-max my-2 flex items-center whitespace-nowrap'><TiTick className='text-red-500 font-semibold mx-1' />{ind}</span>
+              })
+            }
+            {console.log(index.features)}
           </div>
         </div>
-        <div className="image-window">
-          <button className='change-button' onClick={() => setcurrentImage((currentImage - 1 + index.imageData.length) % index.imageData.length)}>&lt;</button>
-          <img src={index.imageData[currentImage]} alt='property-image' />
-          <button className='change-button' onClick={() => setcurrentImage((currentImage + 1) % index.imageData.length)}>&gt;</button>
+        <div className="w-[70%] flex">
+          <button className='absolute h-full w-[4vw] text-5xl text-transparent transition-all duration-300 bg-transparent hover:bg-[#80808066] hover:text-white' onClick={() => setcurrentImage((currentImage - 1 + index.imageData.length) % index.imageData.length)}>&lt;</button>
+          <img src={index.imageData[currentImage]} alt='property-image' className='object-cover w-full h-full' />
+          <button className='absolute right-0 h-full w-[4vw] text-5xl text-transparent transition-all duration-300 bg-transparent hover:bg-[#80808066] hover:text-white' onClick={() => setcurrentImage((currentImage + 1) % index.imageData.length)}>&gt;</button>
         </div>
       </div>
     </div>

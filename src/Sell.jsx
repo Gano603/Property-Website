@@ -1,4 +1,3 @@
-import './styles/Sell.scss'
 // import { HiOutlineClipboardCopy } from 'react-icons/hi'
 import CheckboxList from './components/Checkbox'
 import { useEffect, useState } from 'react'
@@ -117,18 +116,18 @@ const Sell = ({ api_Url }) => {
   return (
     <div>
       <Toaster />
-      <div className='title-poster'>
-        <div>
-          <h1>Upload your Property Details</h1>
-          <p>Get the best value for your property in a few steps.</p>
+      <div className='flex mx-28 px-10 justify-between bg-[#ec7373] py-5 rounded-2xl my-8 border-black border'>
+        <div className='my-3'>
+          <h1 className='text-4xl my-4 text-white font-semibold'>Upload your Property Details</h1>
+          <p className='text-xl text-white font-semibold'>Get the best value for your property in a few steps.</p>
         </div>
         <div>
-          <img src="/assets/img/For sale-bro.png" alt="For Sale Logo" />
+          <img className='h-72 w-64' src="/assets/img/For sale-bro.png" alt="For Sale Logo" />
         </div>
       </div>
-      <div className='content-box' >
-        <div>
-          <div className='first-col'>
+      <div className='mx-28 p-4 border rounded-2xl border-black'>
+        <div className='flex justify-between'>
+          <div className='w-5/12 pl-10'>
             <Content_list_input title={"What kind of property do you have?"} list={propertyTypes} setvalue={settype} default_option={"Select your Property Type"}/>
             <Content_list_input title={"What do you want to do with your property?"} list={serviceTypes} setvalue={setservice} default_option={"Select your Choice"}/>
             <Content_text_input title={"Which city is your property in?"} place_title={"Select your city"} search={true} value={city} setvalue={setcity} />
@@ -140,21 +139,22 @@ const Sell = ({ api_Url }) => {
             <Content_number_input title={"How many Baths?"} type={"Baths"} value={baths} setvalue={setbaths} />
             <ImageHandler files={files} setfiles={setfiles} />
           </div>
-          <div className='second-col'>
-            <div className='personal-content-box'>
-              <h2>Personal Details</h2>
+          <div className='w-5/12'>
+            <div className=''>
+              <h2 className='text-2xl font-semibold'>Personal Details</h2>
               <Content_text_input title={"What is your name?"} place_title={"Enter your Name"} value={name} setvalue={setname} />
               <Content_text_input title={"What is your email?"} place_title={"Enter your email"} value={email} setvalue={setemail} />
               <Content_text_input title={"Contact Number"} place_title={"Enter your Contact Number"} value={contact} setvalue={setcontact} />
             </div>
-            <div className='feature-selection'>
-              <h2>Features</h2>
+            <hr className='my-4 border-gray-600'/>
+            <div className='border border-black rounded-xl p-6'>
+              <h2 className='text-lg font-medium'>Features</h2>
               <p>Select features that you are offering with your property.</p>
               <CheckboxList options={propertyFeatures} value={selectedfeatures} setvalue={setselectedfeatures} />
             </div>
           </div>
         </div>
-        <div><button onClick={submitHandler} className='publish-button'>PUBLISH</button></div>
+        <div className='flex justify-end'><button onClick={submitHandler} className='border-black border-2 bg-red-500 text-2xl font-semibold px-5 hover:bg-red-300 transition-colors duration-300 py-2 rounded-xl'>PUBLISH</button></div>
       </div>
     </div>
   )

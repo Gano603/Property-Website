@@ -1,6 +1,5 @@
-import '../styles/CheckboxList.scss'; // Import the SCSS file for styling
 
-export function CheckboxList({ options , value , setvalue}) {
+export function CheckboxList({ options, value, setvalue }) {
   const handleCheckboxChange = (option) => {
     if (value.includes(option)) {
       setvalue(value.filter((item) => item !== option));
@@ -10,16 +9,19 @@ export function CheckboxList({ options , value , setvalue}) {
   };
 
   return (
-    <div className="checkbox-list">
+    <div className="w-full flex flex-wrap">
       {options.map((option) => (
-        <label key={option} className="checkbox-label">
-          <input
-            type="checkbox"
-            checked={value.includes(option)}
-            onChange={() => handleCheckboxChange(option)}
-          />
-          {option}
-        </label>
+        <div className='w-1/2 my-2'>
+          <label key={option}>
+            <input
+              type="checkbox"
+              className='m-2'
+              checked={value.includes(option)}
+              onChange={() => handleCheckboxChange(option)}
+            />
+            <span className='text-lg'>{option}</span>
+          </label>
+        </div>
       ))}
     </div>
   );

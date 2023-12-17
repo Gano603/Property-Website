@@ -6,11 +6,13 @@ import toast, { Toaster } from 'react-hot-toast'
 
 const ImageHandler = ({ files, setfiles }) => {
   const File_tab = ({ data, iteration, dat, setdat }) => {
+    
     const removeTab = (iter) => {
       return (
-        setdat(dat.filter((index,i) => i !== iter))
+        setdat(dat.filter((_,i) => i !== iter))
       )
     }
+
     return (
       <div>
         <div><span>File {iteration}: {data.name}</span><RxCross2 onClick={() => removeTab(iteration-1)} /></div>
@@ -18,13 +20,15 @@ const ImageHandler = ({ files, setfiles }) => {
     )
   }
   return (
-    <div id='functionality'>
+    <div className='my-8'>
       <Toaster />
-      <h2>{files.length === 0 ? "Upload images of your property" : "Images"}</h2>
+      <h2 className='font-semibold text-lg my-2'>{files.length === 0 ? "Upload images of your property" : "Images"}</h2>
       {files.length === 0 &&
-        <div className='file-input' id='file_input' onClick={() => document.getElementById('fileInput').click()}>
-          <PiUploadSimpleBold />
-          <h2>Upload your images</h2>
+        <div className='h-72 w-[70%] flex justify-center items-center bg-gray-200 border border-black rounded-md' id='file_input' onClick={() => document.getElementById('fileInput').click()}>
+          <div className='flex flex-col items-center'>
+          <PiUploadSimpleBold className='text-red-500 text-5xl' />
+          <h2 className='text-2xl my-2 font-semibold'>Upload your images</h2>
+          </div>
         </div>}
       <form onSubmit={(e) => e.preventDefault()}>
         <input type="file" onChange={(e) => {
