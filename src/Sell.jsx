@@ -122,7 +122,7 @@ const Sell = ({ api_Url }) => {
           <p className='text-xl text-white font-semibold'>Get the best value for your property in a few steps.</p>
         </div>
         <div>
-          <img className='h-72 w-64' src="assets/img/For sale-bro.png" alt="For Sale Logo" />
+          <img className='h-72 w-64' src="assets/img/Forsale-bro.png" alt="For Sale Logo" />
         </div>
       </div>
       <div className='mx-28 p-4 border rounded-2xl border-black'>
