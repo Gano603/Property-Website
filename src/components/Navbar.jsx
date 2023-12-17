@@ -29,7 +29,7 @@ const Navbar = ({ api_Url, isLogin, setisLogin, profMenuisOpen, setprofMenuisOpe
     <>
       <div className='h-24 flex items-center px-16 border border-b-black border-opacity-50'>
         <div className='flex items-center cursor-pointer' onClick={() => nav('/')}>
-          <img src="assets/img/ideogram.jpeg" className='h-16 w-16 rounded-md' alt="logo" />
+          <img src="public/assets/img/ideogram.jpeg" className='h-16 w-16 rounded-md' alt="logo" />
           <h2 className='mx-2 text-2xl font-semibold'><span className='text-[#ff0000]'>Estate</span>.com</h2>
         </div>
         <div className='w-full mx-20'>

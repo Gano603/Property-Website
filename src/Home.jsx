@@ -15,10 +15,10 @@ const Home = () => {
         <div className='circle1'></div>
         <div className='circle2'></div>
         <div className='mx-[20%] my-16'>
-          <div className='grid-cols-9 grid mx-auto'>
-            <Card title={"Sell Property"} imageUrl={"/assets/img/For sale-bro.png"} target="/sell" />
-            <Card title={"Buy Property"} imageUrl={"/assets/img/House searching-cuate.png"} target="/buy" />
-            <Card title={"Rent"} imageUrl={"/assets/img/Apartment rent-bro.png"} target="/rent" />
+          <div className='grid-cols-9 grid mx-auto py-10 px-6 rounded-2xl bg-gray-300'>
+            <Card title={"Sell Property"} imageUrl={"public/assets/img/For sale-bro.png"} target="/sell" />
+            <Card title={"Buy Property"} imageUrl={"public/assets/img/House searching-cuate.png"} target="/buy" />
+            <Card title={"Rent"} imageUrl={"public/assets/img/Apartment rent-bro.png"} target="/rent" />
           </div>
         </div>
       </div>

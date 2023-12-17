@@ -41,7 +41,7 @@ const AdDisplay = ({ api_Url }) => {
     <>
       {displayMenu && <Addisplay index={ads[displayAd]} setdisplayMenu={setdisplayMenu} />}
       <div className="relative">
-        <img className='w-full h-80 object-cover black-above-img' src="/assets/img/shutterstock_407554567.jpg"/>
+        <img className='w-full h-80 object-cover black-above-img' src="public/assets/img/shutterstock_407554567.jpg"/>
         <SearchBar address={location} class_name={"Display-searchbar"} />
       </div>
       <div className='px-28 my-16'>
