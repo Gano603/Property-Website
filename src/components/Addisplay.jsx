@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { TiTick } from 'react-icons/ti'
 import { BiBath, BiBed } from 'react-icons/bi'
 import { TbRulerMeasure } from 'react-icons/tb'
-import '../styles/Addisplay.scss'
+// import '../styles/Addisplay.scss'
 import SizeDisplay from './SizeDisplay'
 
 const Addisplay = ({ index, setdisplayMenu }) => {
@@ -36,10 +36,9 @@ const Addisplay = ({ index, setdisplayMenu }) => {
                 return <span className='text-white w-max my-2 flex items-center whitespace-nowrap'><TiTick className='text-red-500 font-semibold mx-1' />{ind}</span>
               })
             }
-            {console.log(index.features)}
           </div>
         </div>
-        <div className="w-[70%] flex">
+        <div className="w-[70%] flex relative">
           <button className='absolute h-full w-[4vw] text-5xl text-transparent transition-all duration-300 bg-transparent hover:bg-[#80808066] hover:text-white' onClick={() => setcurrentImage((currentImage - 1 + index.imageData.length) % index.imageData.length)}>&lt;</button>
           <img src={index.imageData[currentImage]} alt='property-image' className='object-cover w-full h-full' />
           <button className='absolute right-0 h-full w-[4vw] text-5xl text-transparent transition-all duration-300 bg-transparent hover:bg-[#80808066] hover:text-white' onClick={() => setcurrentImage((currentImage + 1) % index.imageData.length)}>&gt;</button>
