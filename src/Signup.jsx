@@ -43,7 +43,7 @@ const Signin = ({ api_Url, setisLogin }) => {
     else if (!register) {
       await axios.post(api_Url+"/user/login", {
         email, password
-      },{withCredentials:true}).then((res) => console.log(res)).then(() => {
+      },{withCredentials:true}).then(() => {
         setisLogin(true)
         nav('/')
       })
