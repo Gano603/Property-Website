@@ -1,4 +1,4 @@
-import { Suspense, useState, lazy } from 'react'
+import { Suspense, useState, lazy, useEffect } from 'react'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 const Home = lazy(() => import('./Home'))
 const Navbar = lazy(() => import('./components/Navbar'))
@@ -6,7 +6,8 @@ const AdDisplay = lazy(() => import('./Buy'))
 const Sell = lazy(() => import('./Sell'))
 const Footer = lazy(() => import('./components/Footer'))
 const Signin = lazy(() => import('./Signup'))
-import '../styles.css'
+import './styles.css'
+import axios from 'axios'
 
 const api_url = import.meta.env.VITE_API_URL;
 // const api_url = "http://localhost:5000";
@@ -14,6 +15,25 @@ const api_url = import.meta.env.VITE_API_URL;
 function App() {
   const [isLogin, setisLogin] = useState(false);
   const [profMenuisOpen, setprofMenuisOpen] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${api_url}/user/getuser`, {
+          withCredentials: true,
+        });
+        if (response.data.success) {
+          setisLogin(true);
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+
+    fetchData();
+
+  }, []);
+
 
   return (
     <BrowserRouter>

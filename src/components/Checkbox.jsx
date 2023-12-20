@@ -11,7 +11,7 @@ export function CheckboxList({ options, value, setvalue }) {
   return (
     <div className="w-full flex flex-wrap">
       {options.map((option) => (
-        <div className='w-1/2 my-2'>
+        <div className='w-full md:w-1/2 my-2'>
           <label key={option}>
             <input
               type="checkbox"

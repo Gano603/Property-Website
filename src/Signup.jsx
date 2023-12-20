@@ -28,9 +28,9 @@ const Signin = ({ api_Url, setisLogin }) => {
       })
     }
     else if (register) {
-      await axios.post(api_Url + "/user/newuser", {
+      await axios.post(api_Url+"/user/newuser", {
         name, email, password, contact
-      }).then((res) => console.log(res.data)).then(() => {
+      },{withCredentials:true}).then((res) => console.log(res)).then((res) => {
         if (res.data.success) {
           setisLogin(true)
           nav('/')
@@ -41,20 +41,20 @@ const Signin = ({ api_Url, setisLogin }) => {
       })
     }
     else if (!register) {
-      await axios.post(api_Url + "/user/login", {
+      await axios.post(api_Url+"/user/login", {
         email, password
-      }).then((res) => console.log(res.data)).then(() => {
+      },{withCredentials:true}).then((res) => console.log(res)).then(() => {
         setisLogin(true)
-      }
-      ).then(() => nav('/'))
+        nav('/')
+      })
     }
   }
 
 
   return (
-    <div className='flex flex-col justify-center items-center mx-[30vw] my-32'>
+    <div className='flex flex-col justify-center items-center my-32'>
 
-      <div className="border border-black rounded-xl p-4 flex flex-col items-center w-[32rem]">
+      <div className="border border-black rounded-xl p-4 flex flex-col items-center w-[20rem] xs:w-[24rem] sm:w-[32rem]">
         <Toaster />
         <div className="bg-gray-600 rounded-full w-max px-4 py-3">
           <FontAwesomeIcon icon={faUser} className='text-3xl' />
@@ -108,7 +108,7 @@ const Signin = ({ api_Url, setisLogin }) => {
             <p className='px-4'>{register ? "Already" : "Not"} registered? <span className='cursor-pointer text-blue-800 underline' onClick={() => setregister(!register)}>{register ? "Login" : "Register"}</span> now</p>
 
           </form>
-          <button className="login-button" onClick={submitHandler}>{register ? "Register" : "Login"}</button>
+          <button className="mt-4 bg-red-600 px-6 py-2 border border-black rounded-full text-white font-semibold text-lg hover:bg-red-500" onClick={submitHandler}>{register ? "Register" : "Login"}</button>
         </div>
       </div>
 

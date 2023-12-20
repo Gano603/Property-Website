@@ -41,10 +41,10 @@ const AdDisplay = ({ api_Url }) => {
     <>
       {displayMenu && <Addisplay index={ads[displayAd]} setdisplayMenu={setdisplayMenu} />}
       <div className="relative">
-        <img className='w-full h-80 object-cover black-above-img' src="public/assets/img/shutterstock_407554567.jpg"/>
+        <img className='w-full h-80 object-cover black-above-img' src="/assets/img/shutterstock_407554567.jpg"/>
         <SearchBar address={location} class_name={"Display-searchbar"} />
       </div>
-      <div className='px-28 my-16'>
+      <div className='px-4 sm:px-14 lg:px-28 my-16'>
         <h1 className='text-3xl font-semibold'>Properties for Sale {location === "all" ? "" : "in"} {location === "all" ? "" : location}</h1>
         <div className='my-4'>
           <button className="flex items-center border hover:bg-gray-400 border-black rounded-lg py-2 px-4 bg-gray-200"><FaFilter className='text-lg' /><span className='mx-2 text-lg'>Filters</span></button>

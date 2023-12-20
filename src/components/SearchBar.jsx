@@ -30,10 +30,10 @@ const SearchBar = ({address , class_name}) => {
     }
 
   return (
-    <div className={`${class_name === "Display-searchbar" ? "top-[40%]":"top-[50%]"} absolute flex items-center left-[50%] -translate-x-[50%] bg-gray-600 py-6 px-4 rounded-full`}>
+    <div className={`${class_name === "Display-searchbar" ? "top-[40%]":"top-[50%]"} absolute flex items-center left-[50%] -translate-x-[50%] w-[17rem] xs:w-[25rem] sm:w-[30rem] lg:w-[40rem] bg-gray-600 py-4 sm:py-6 px-2 sm:px-4 rounded-full`}>
       <input 
-      className='mx-4 h-12 outline-none w-[25vw] font-semibold text-gray-500 px-4 rounded-full'
-      type="text" placeholder='Search by City' onKeyDown={(e)=>{if(e.key === 'Enter') submitHandler()}} value={address} onChange={(e)=> setsearchValue(e.target.value)}/>
+      className='mx-4 h-12 outline-none w-full font-semibold text-gray-500 px-4 rounded-full'
+      type="text" placeholder='Search by City' onKeyDown={(e)=>{if(e.key === 'Enter') submitHandler()}} onChange={(e)=> setsearchValue(e.target.value)}/>
       <div className='bg-white p-2 rounded-full cursor-pointer mr-5' onClick={submitHandler}>
       <ImSearch className='text-xl' />
       </div>

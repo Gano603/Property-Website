@@ -92,7 +92,7 @@ const Sell = ({ api_Url }) => {
       .then(async(resolved_data) => {
         await axios.post(api_Url + "/ad/newad", {
             name, email, contact, beds, baths, size, features: selectedfeatures, price:price.toLocaleString(), address, city, type, dfiles: resolved_data, description, service_type:service,
-          },{timeout: 60000}).then(()=> nav("/")).catch((err) => console.log("Error:", err))
+          },{timeout: 60000,withCredentials:true}).then(()=> nav("/")).catch((err) => console.log("Error:", err))
         })
   };
 
@@ -116,18 +116,18 @@ const Sell = ({ api_Url }) => {
   return (
     <div>
       <Toaster />
-      <div className='flex mx-28 px-10 justify-between bg-[#ec7373] py-5 rounded-2xl my-8 border-black border'>
+      <div className='flex flex-col lg:flex-row mx-3 md:mx-6 lg:mx-28 px-10 justify-between bg-[#ec7373] py-5 rounded-2xl my-8 border-black border'>
         <div className='my-3'>
-          <h1 className='text-4xl my-4 text-white font-semibold'>Upload your Property Details</h1>
-          <p className='text-xl text-white font-semibold'>Get the best value for your property in a few steps.</p>
+          <h1 className='text-2xl md:text-4xl my-4 text-white font-semibold'>Upload your Property Details</h1>
+          <p className='text-base md:text-xl text-white font-semibold'>Get the best value for your property in a few steps.</p>
         </div>
-        <div>
+        <div className='flex justify-center'>
           <img className='h-72 w-64' src="assets/img/Forsale-bro.png" alt="For Sale Logo" />
         </div>
       </div>
-      <div className='mx-28 p-4 border rounded-2xl border-black'>
-        <div className='flex justify-between'>
-          <div className='w-5/12 pl-10'>
+      <div className='mx-3 md:mx-10 lg:mx-28 px-0 py-4 md:p-4 border rounded-2xl border-black'>
+        <div className='flex flex-col sm:flex-row sm:justify-between'>
+          <div className='w-full sm:w-1/2 xl:w-5/12 px-5 md:pl-10'>
             <Content_list_input title={"What kind of property do you have?"} list={propertyTypes} setvalue={settype} default_option={"Select your Property Type"}/>
             <Content_list_input title={"What do you want to do with your property?"} list={serviceTypes} setvalue={setservice} default_option={"Select your Choice"}/>
             <Content_text_input title={"Which city is your property in?"} place_title={"Select your city"} search={true} value={city} setvalue={setcity} />
@@ -139,8 +139,9 @@ const Sell = ({ api_Url }) => {
             <Content_number_input title={"How many Baths?"} type={"Baths"} value={baths} setvalue={setbaths} />
             <ImageHandler files={files} setfiles={setfiles} />
           </div>
-          <div className='w-5/12'>
-            <div className=''>
+          <div className='w-full sm:w-1/2 xl:w-5/12 px-5 sm:mx-0'>
+            <div className='w-full'>
+              <hr className='border-gray-500 border-[2px] mx-2 my-5'/>
               <h2 className='text-2xl font-semibold'>Personal Details</h2>
               <Content_text_input title={"What is your name?"} place_title={"Enter your Name"} value={name} setvalue={setname} />
               <Content_text_input title={"What is your email?"} place_title={"Enter your email"} value={email} setvalue={setemail} />
@@ -154,7 +155,7 @@ const Sell = ({ api_Url }) => {
             </div>
           </div>
         </div>
-        <div className='flex justify-end'><button onClick={submitHandler} className='border-black border-2 bg-red-500 text-2xl font-semibold px-5 hover:bg-red-300 transition-colors duration-300 py-2 rounded-xl'>PUBLISH</button></div>
+        <div className='flex justify-end mt-5 mx-4'><button onClick={submitHandler} className='border-black border-2 bg-red-500 text-2xl font-semibold px-5 hover:bg-red-300 transition-colors duration-300 py-2 rounded-xl'>PUBLISH</button></div>
       </div>
     </div>
   )
